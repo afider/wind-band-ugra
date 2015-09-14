@@ -1,0 +1,125 @@
+html
+	@include rem-baseline
+
+body
+	background: #ececec url("../img/bg.jpg") center 0 no-repeat
+	color: $text_color
+	+rem(font-size, 14px)
+	line-height: 1.45
+	font-family: $font_main
+
+p
+	margin: 0 0 $content_bot_space 0
+
+ul
+	margin: 0 0 $content_bot_space -20px
+
+ol
+	margin: 0 0 $content_bot_space -20px
+
+ul li,
+ol li
+	margin-bottom: 8px
+
+.lst-bullet
+	margin: 0 0 10px 0
+	padding: 0
+
+	& li 
+		display: block
+		padding: 0 0 10px 25px
+		background: url("#{$img_path}list-bullet.png") 10px 0 no-repeat
+		list-style-type: none
+
+
+/*  Headers
+/*  -------------------------------------------- */
+
+#{headings(1, 6)}
+	margin: 0 0 30px 0
+	padding: 0
+	line-height: 1.3
+	font-weight: normal
+	text-transform: uppercase
+	
+#{headings(1, 1)}
+	font-weight: bold
+	+rem(font-size, 24px)
+
+#{headings(2, 2)}
+	+rem(font-size, 20px)
+
+#{headings(3, 6)}
+	+rem(font-size, 17px)
+
+
+/* Headers
+/* ---------------------------------------END--- */
+
+
+/* font
+/* --------------------------------------------- */
+
++font-face( $family: "PT Sans", $file_name_r: "PTS55F_W", $file_name_i: "PTS56F_W", $file_name_b: "PTS75F_W", $file_name_bi: "PTS76F_W")
+
++font-face( $family: "Open Sans", $file_name_r: "OpenSans-Regular", $file_name_i: "OpenSans-Italic", $file_name_b: "opensans-bold", $file_name_bi: "opensans-bolditalic")
+
++font-face( $family: "Open Sans Extra Bold", $file_name_r: "OpenSansExtraBold")	
+
+%font-extra-bold
+	font-family: 'Open Sans Extra Bold', $font_main
+
+.font-extra-bold
+	@extend %font-extra-bold
+
+/* font
+/* ---------------------------------------END--- */
+
+
+/* Links
+/* --------------------------------------------- */
+
+a, .u
+	text-decoration: none
+	border-bottom-width: 1px
+	border-bottom-style: solid
+
+	+link-color ($color: $link_color, $color_hover: $link_color_hover, $color_visited: $link_color_visited, $animation-time: $link_animation-time)
+
+	&:focus
+		outline: thin dotted
+
+
+.dashed,
+.dotted
+	cursor: pointer
+
+
+.dashed
+	border-bottom-style: dashed
+
+.dotted
+	border-bottom-style: dotted
+
+/* Links
+/* -------------------------------------END----- */
+
+::-moz-selection
+	background: $selection_bg
+	text-shadow: none
+
+::selection
+	background: $selection_bg
+	text-shadow: none
+
+hr
+	display: block
+	margin: 1em 0
+	padding: 0
+	height: 1px
+	border: 0
+	border-top: 1px solid #ccc
+
+textarea
+	resize: vertical
+

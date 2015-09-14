@@ -1,0 +1,667 @@
+%bszbb
+	@include box-sizing(border-box)
+
+
+/* clearfix
+/* --------------------------------------------- */
+
+
+%clear
+	&:before,
+	&:after
+		display: table
+		content: ''
+		clear: both
+	&:after
+		clear: both
+
+.clearfix-block
+	clear: both
+	overflow: hidden
+	margin: 0
+	padding: 0
+	font-size: 0
+	line-height: 0
+
+.clearfix 
+	&:before,
+	&:after
+		display: table
+		content: ''
+		clear: both
+	&:after
+		clear: both
+
+
+/* clearfix
+/* ---------------------------------------END--- */
+
+
+/* centered
+/* --------------------------------------------- */
+
+.centered
+	margin: auto
+	width: $page_w
+	padding-left: 60px
+	padding-right: 60px
+	+box-sizing(border-box)
+
+/* centered
+/* ---------------------------------------END--- */
+
+
+/* page
+/* --------------------------------------------- */
+
+.page
+	position: relative
+	min-height: 100%
+	width: 100%
+	min-width: $page_w
+
+	// &__content
+	// 	overflow: hidden
+	// 	margin: 0 230px
+	// 	min-height: 20px
+	// 	background: #f6f866
+
+	// &__sidebar
+	// 	float: left
+	// 	width: 220px
+
+	// 	&_lt_left
+	// 		margin-left: -100%
+	// 		background: #bfdcf3
+
+	// 	&_lt_right
+	// 		margin-left: -220px
+	// 		background: #ffaa30
+
+/* page
+/* ---------------------------------------END--- */
+
+/* header
+/* --------------------------------------------- */
+
+.header
+	background: $main_color
+	position: relative
+	height: 76px
+
+	&__body
+		padding: 0
+		display: table
+
+	&__menu
+		display: table-cell
+		vertical-align: top
+
+	&__search
+		display: table-cell
+		vertical-align: middle
+		width: 286px
+		padding: 0 23px
+
+
+/* header
+/* ---------------------------------------END--- */
+
+
+/* footer
+/* --------------------------------------------- */
+
+.footer
+	position: relative
+	//background: #f1acf2
+	min-width: $page_w
+	padding-left: 20px
+	padding-right: 20px
+	+rem(font-size, 11px)
+	line-height: 1.8
+
+
+	&__body
+		display: table
+		width: 100%
+
+	&__i
+		display: table-cell
+		vertical-align: middle
+		@extend %bszbb
+		padding: 34px 0
+		
+		&_copyright
+			width: 35%
+			padding-right: 30px
+
+		&_address
+			width: 36%
+			padding-right: 20px
+
+		&_social
+			width: 17%
+			padding-right: 20px
+
+		&_counter
+			width: 12%
+			padding-right: 20px
+
+			a
+				border-bottom: none
+		
+
+/* footer
+/* ---------------------------------------END--- */
+
+/* location-icon
+/* --------------------------------------------- */
+
+.location-icon
+	display: inline-block
+	+sprite-icon("location")
+	position: relative
+	top: 2px
+	margin-right: 9px
+
+/* location-icon
+/* ---------------------------------------END--- */
+
+/* location-icon
+/* --------------------------------------------- */
+
+.email-icon
+	display: inline-block
+	+sprite-icon("mail")
+	position: relative
+	top: 1px
+	margin-right: 9px
+
+/* location-icon
+/* ---------------------------------------END--- */
+
+
+/* made-by
+/* --------------------------------------------- */
+
+.made-by
+	+link-color ($color_visited: none)
+
+/* made-by
+/* ---------------------------------------END--- */
+
+
+/* section
+/* --------------------------------------------- */
+
+.section
+	background: $page_color
+	@extend %clear
+
+	&_bg_dark
+		background: $bg_color
+
+	&__body
+		margin-bottom: 35px
+		padding-top: 35px
+
+/* section
+/* ---------------------------------------END--- */
+
+
+/* main-nav
+/* --------------------------------------------- */
+
+.main-nav
+	
+	&__lst
+		margin: 0
+		padding: 0
+		list-style-type: none
+		display: table
+		width: 100%
+		
+	&__i
+		margin: 0
+		padding: 0
+		display: table-cell
+		vertical-align: middle
+
+	& &__a
+		display: block
+		height: 75px
+		line-height: 75px
+		text-align: center
+		padding: 0 25px
+		white-space: nowrap
+		outline: none
+		+link-color ($color: #FFE2AB, $color_hover: #fff, $color_visited: none)
+		+transition-property(background)
+		text-transform: uppercase
+
+		&:hover
+			background: $main_color_light
+			+transition-duration(.1s)
+
+	&__i_parent &__a
+		&:after
+			content: ''
+			display: inline-block
+			margin-left: 9px
+			width: 0
+			height: 0
+			border-style: solid
+			border-width: 5px 4.5px 0 4.5px
+			border-color: #ffe2ab transparent transparent transparent
+			+transition-property(border-color)
+			position: relative
+			top: -1px
+
+	&__i_parent &__a:hover
+		&:after
+			border-color: #fff transparent transparent transparent
+
+	&__i_active &__a
+		color: #fff !important
+		
+
+/* main-nav
+/* ---------------------------------------END--- */
+
+
+/* search-form
+/* --------------------------------------------- */
+
+.search-form
+	$search_button_dim: 40px
+	height: $search_button_dim
+	position: relative
+	background: $main_color_dark
+
+	&:before
+		content: ''
+		display: block
+		position: absolute
+		top: 50%
+		margin-top: - image-height( sprite-path("search") )/2
+		right: 12px
+		+sprite-icon("search")
+
+	&__input
+		border: none
+		margin: 0
+		padding: 0 18px
+		background: none
+		width: 100%
+		padding-right: $search_button_dim + 18px
+		height: $search_button_dim
+		color: #fff
+		@extend %bszbb
+		outline: none
+		+transition-property(background)
+		+transition-duration($link_animation-time)
+
+		&:focus
+			background: $main_color_light
+		
+	&__button
+		position: absolute
+		top: 0
+		right: 0
+		width: $search_button_dim
+		height: $search_button_dim
+		background: none
+		//@include opacity(.3)
+		border: none
+		display: block
+		text-indent: -999px
+		overflow: hidden
+
+/* search-form
+/* ---------------------------------------END--- */
+
+
+/* social
+/* --------------------------------------------- */
+
+.social
+	@extend %clear
+
+	&__lst
+		margin: 0
+		padding: 0
+		list-style-type: none
+		display: inline-block
+		
+	&__i
+		margin: 0 6px 0 0
+		padding: 0
+		float: left
+		display: inline-block
+		
+
+	& &__a
+		display: block
+		overflow: hidden
+		text-indent: -999px
+		border-bottom: none
+		position: relative
+		width: 38px
+		height: 38px
+		border-radius: 50%
+		+transition-property(background)
+		outline: none
+
+		&:hover
+			background: $main_color_light
+			+transition-duration(.1s)
+
+		&:active
+			+box-shadow(inset 3px 3px 4px rgba(#000, .6))
+
+		&_vk
+			background: #3f5e7d
+			&:before
+				content: ''
+				display: block
+				position: absolute
+				top: 50%
+				left: 50%
+				margin-top: - image-height( sprite-path("vk") )/2
+				margin-left: - image-width( sprite-path("vk") )/2 + 2
+				+sprite-icon("vk")
+
+			&:active
+				&:before
+					margin-top: - image-height( sprite-path("vk") )/2 + 1
+
+
+
+		&_facebook
+			background: #4a6ea9
+			&:before
+				content: ''
+				display: block
+				position: absolute
+				top: 50%
+				left: 50%
+				margin-top: - image-height( sprite-path("facebook") )/2
+				margin-left: - image-width( sprite-path("facebook") )/2
+				+sprite-icon("facebook")
+
+			&:active
+				&:before
+					margin-top: - image-height( sprite-path("facebook") )/2 + 1
+
+		&_youtube
+			background: #db4538
+			&:before
+				content: ''
+				display: block
+				position: absolute
+				top: 50%
+				left: 50%
+				margin-top: -10px
+				margin-left: -5px
+				width: 0
+				height: 0
+				border-style: solid
+				border-width: 10px 0 10px 14px
+				border-color: transparent transparent transparent #ffffff
+
+			&:active
+				&:before
+					margin-top: -9px
+
+
+/* social
+/* ---------------------------------------END--- */
+
+
+/* table
+/* --------------------------------------------- */
+
+.table 
+	margin-bottom: 20px
+	width: 100%
+	border: 2px solid #e9ecee
+
+	&__h td,
+	& th 
+		font-size: 13px
+		font-weight: bold
+		color: #888
+		background: #e9ecee
+
+	& th,
+	& td
+		padding: 10px 14px
+		border-bottom: 1px solid #e9ecee
+
+	&__line
+		background: #f6f6f6
+
+	
+/* table
+/* ---------------------------------------END--- */
+
+
+/* inf
+/* --------------------------------------------- */
+
+.inf
+	display: table
+	width: 100%
+	margin-bottom: 30px
+
+	&__i
+		display: table-cell
+		vertical-align: top
+
+		&_phone
+			font-size: 16px
+			color: #333
+			font-weight: bold
+			width: 30%
+
+		&_partner-1
+			width: 39%
+
+/* inf
+/* ---------------------------------------END--- */
+
+
+/* bullet-h
+/* --------------------------------------------- */
+
+.bullet-h
+	text-align: center
+	margin-bottom: 45px
+	text-transform: uppercase
+	+rem(font-size, 30px)
+
+	&__txt
+		display: inline-block
+		position: relative
+		padding: 0 33px
+
+		&:before
+			content: ''
+			display: block
+			position: absolute
+			top: 50%
+			margin-top: -4px
+			left: 0
+			width: 8px
+			height: 8px
+			border-radius: 50%
+			background: $h_color
+
+		&:after
+			content: ''
+			display: block
+			position: absolute
+			top: 50%
+			margin-top: -4px
+			right: 0
+			width: 8px
+			height: 8px
+			border-radius: 50%
+			background: $h_color
+
+/* bullet-h
+/* ---------------------------------------END--- */
+
+
+/* separator
+/* --------------------------------------------- */
+
+.separator
+	margin-bottom: 35px
+	height: 1px
+	background: $border_color_light
+
+/* separator
+/* ---------------------------------------END--- */
+
+
+/* events
+/* --------------------------------------------- */
+
+.events
+	margin-bottom: 25px
+
+	&__lst
+		margin: 0 0 -25px 0
+		padding: 0
+		list-style-type: none
+		
+	
+	&__i
+		margin: 0 0 25px 0
+		padding: 0
+		width: 49%
+		@extend %bszbb
+		padding-right: 80px
+		display: inline-block
+		vertical-align: top
+		padding-left: 92px
+		position: relative
+		min-height: 70px
+
+	&__date
+		display: block
+		width: 68px
+		height: 68px
+		background: $main_color_light
+		color: #fff
+		text-align: center
+		padding-top: 8px
+		@extend %bszbb
+		position: absolute
+		top: 0
+		left: 0
+
+	&__number
+		+rem(font-size, 36px)
+		line-height: 1
+		@extend %font-extra-bold
+
+	&__weekday
+		+rem(font-size, 12px)
+
+	&__h
+		margin-bottom: 5px
+
+	&__a
+		+link-color ($color: #000)
+
+	&__property
+		+rem(font-size, 12px)
+
+	&__imp
+		color: $main_color_light
+		font-weight: bold
+
+/* events
+/* ---------------------------------------END--- */
+
+
+/* teasers
+/* --------------------------------------------- */
+
+.teasers
+	margin: 0 0 25px 0
+
+	&__lst
+		margin: 0 0 -25px 0
+		padding: 0
+		list-style-type: none
+		
+	&__i
+		margin: 0 0 25px 0
+		padding: 0
+		display: inline-block
+		vertical-align: top
+		width: 33%
+		padding-right: 50px
+		@extend %bszbb
+
+	&__date
+		+rem(font-size, 12px)
+		color: $main_color_light
+		margin-bottom: 5px
+
+/* teasers
+/* ---------------------------------------END--- */
+
+
+/* txt-to-center
+/* --------------------------------------------- */
+
+.txt-to-center
+	text-align: center
+
+/* txt-to-center
+/* ---------------------------------------END--- */
+
+
+/* h-right-txt
+/* --------------------------------------------- */
+
+.h-right-txt
+	position: relative
+
+	& &__content
+		position: absolute
+		bottom: 5px
+		right: 0
+
+/* h-right-txt
+/* ---------------------------------------END--- */
+
+
+/* more-link
+/* --------------------------------------------- */
+
+.more-link
+	text-transform: uppercase
+	+rem(font-size, 12px)
+	+link-color ($color_visited: none)
+	position: relative
+	margin-left: image-width( sprite-path("calendar") )/2 + 14
+
+	&:before
+		content: ''
+		display: block
+		position: absolute
+		top: 50%
+		margin-top: - image-height( sprite-path("calendar") )/2 + 2
+		left: - image-width( sprite-path("calendar") )/2 - 14
+		+sprite-icon("calendar")
+
+
+/* more-link
+/* ---------------------------------------END--- */
+
+
