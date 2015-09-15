@@ -2364,11 +2364,11 @@ img.mfp-img {
   .header__menu {
     width: 50px;
     vertical-align: middle;
-    padding-left: 23px;
   }
 
   .header__search {
     width: auto;
+    padding-right: 0;
   }
 
   .nav-ctrl {
