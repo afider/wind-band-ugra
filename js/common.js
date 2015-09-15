@@ -101,6 +101,16 @@
               }
 
         });
+
+        // анимация мобильного меню
+        $(".js-nav-ctrl").on('click', function(e) {
+            e.preventDefault();
+            var self = $(this),
+                target = $('.' + self.data('nav'));
+
+            self.toggleClass('is-open');
+            target.toggleClass('is-open');
+        });
         
 
     });

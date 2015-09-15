@@ -42,10 +42,14 @@
 
 .centered
 	margin: auto
-	width: $page_w
+	max-width: $page_w
 	padding-left: 60px
 	padding-right: 60px
 	+box-sizing(border-box)
+
+	+max-screen($mq_menu)
+		padding-left: 20px
+		padding-right: 20px
 
 /* centered
 /* ---------------------------------------END--- */
@@ -58,7 +62,7 @@
 	position: relative
 	min-height: 100%
 	width: 100%
-	min-width: $page_w
+	//min-width: $page_w
 
 	img
 		max-width: 100%
@@ -91,24 +95,97 @@
 .header
 	background: $main_color
 	position: relative
-	height: 76px
+	height: $header_h
 
 	&__body
 		padding: 0
 		display: table
+		width: 100%
 
 	&__menu
 		display: table-cell
 		vertical-align: top
+		height: $header_h
+
+		+max-screen($mq_menu)
+			width: 50px
+			vertical-align: middle
+			padding-left: 23px
+			
 
 	&__search
 		display: table-cell
 		vertical-align: middle
 		width: 286px
 		padding: 0 23px
+		height: $header_h
+
+		+max-screen($mq_menu)
+			width: auto
 
 
 /* header
+/* ---------------------------------------END--- */
+
+
+/* nav-ctrl
+/* --------------------------------------------- */
+
+.nav-ctrl
+	display: none
+	width: $mobile_search_h
+	height: $mobile_search_h
+	background: $main_color_dark
+	vertical-align: middle
+	cursor: pointer
+	position: relative
+
+	+max-screen($mq_menu)
+		display: inline-block
+
+	&__body
+		position: absolute
+		width: 40px
+		height: 28px
+		top: 50%
+		margin-top: -14px
+		left: 50%
+		margin-left: -20px
+		//background: red
+	
+	&:hover &__i
+		background: #fff
+	&__i
+		width: 40px
+		height: 4px
+		background: #FFE2AB
+		position: absolute
+		left: 0
+		+transition-duration(.5s)
+		+transform-origin(left, center)
+
+
+		&_tp_top
+			top: 0
+			.is-open &
+				top: -2px
+				left: 6px
+				+rotate(45deg)
+
+		&_tp_middle
+			top: 12px
+			.is-open &
+				left: -15px
+				+opacity(0)
+
+		&_tp_bottom
+			bottom: 0
+			.is-open &
+				bottom: -2px
+				left: 6px
+				+rotate(-45deg)
+
+/* nav-ctrl
 /* ---------------------------------------END--- */
 
 
@@ -118,7 +195,6 @@
 .footer
 	position: relative
 	//background: #f1acf2
-	min-width: $page_w
 	padding-left: 20px
 	padding-right: 20px
 	+rem(font-size, 11px)
@@ -129,15 +205,26 @@
 		display: table
 		width: 100%
 
+		+max-screen($mq_menu)
+			display: block
+
 	&__i
 		display: table-cell
 		vertical-align: middle
 		@extend %bszbb
 		padding: 34px 0
+
+		+max-screen($mq_menu)
+			display: block
+			width: 100% !important
+			text-align: center
+			padding: 10px 0
 		
 		&_copyright
 			width: 35%
 			padding-right: 30px
+			+max-screen($mq_menu)
+				padding-top: 25px
 
 		&_address
 			width: 36%
@@ -212,6 +299,9 @@
 	&__body
 		margin-bottom: 35px
 		padding-top: 35px
+		+max-screen($mq_menu)
+			margin-bottom: 15px
+			padding-top: 15px
 
 /* section
 /* ---------------------------------------END--- */
@@ -221,6 +311,18 @@
 /* --------------------------------------------- */
 
 .main-nav
+
+	+max-screen($mq_menu)
+		position: absolute
+		top: $header_h
+		left: 0
+		background: $main_color
+		z-index: 100
+		width: 100%
+		display: none
+
+	&.is-open
+		display: block !important
 	
 	&__lst
 		margin: 0
@@ -228,12 +330,18 @@
 		list-style-type: none
 		display: table
 		width: 100%
+
+		+max-screen($mq_menu)
+			display: block
 		
 	&__i
 		margin: 0
 		padding: 0
 		display: table-cell
 		vertical-align: middle
+
+		+max-screen($mq_menu)
+			display: block
 
 	& &__a
 		display: block
@@ -246,6 +354,11 @@
 		+link-color ($color: #FFE2AB, $color_hover: #fff, $color_visited: none)
 		+transition-property(background)
 		text-transform: uppercase
+
+		+max-screen($mq_menu)
+			height: 55px
+			line-height: 55px
+			text-align: left
 
 		&:hover
 			background: $main_color_light
@@ -282,26 +395,37 @@
 
 .search-form
 	$search_button_dim: 40px
+	$search_button_dim_m: $mobile_search_h
+
 	height: $search_button_dim
 	position: relative
 	background: $main_color_dark
+
+	+max-screen($mq_menu)
+		height: $search_button_dim_m
 
 	::-webkit-input-placeholder
 		color: #fff
 		font-style: italic
 		+rem(font-size, 12px)
+		+max-screen($mq_menu)
+			+rem(font-size, 20px)
 		
 
 	::-moz-placeholder
 		color: #fff
 		font-style: italic
 		+rem(font-size, 12px)
+		+max-screen($mq_menu)
+			+rem(font-size, 20px)
 		
 
 	input:-ms-input-placeholder
 		color: #fff
 		font-style: italic
 		+rem(font-size, 12px)
+		+max-screen($mq_menu)
+			+rem(font-size, 20px)
 
 	&:before
 		content: ''
@@ -326,8 +450,15 @@
 		+transition-property(background)
 		+transition-duration($link_animation-time)
 
+		+max-screen($mq_menu)
+			padding-right: $search_button_dim_m + 18px
+			height: $search_button_dim_m
+			+rem(font-size, 20px)
+
 		&:focus
 			background: $main_color_light
+
+
 		
 	&__button
 		position: absolute
@@ -341,6 +472,10 @@
 		display: block
 		text-indent: -999px
 		overflow: hidden
+
+		+max-screen($mq_menu)
+			width: $search_button_dim_m
+			height: $search_button_dim_m
 
 /* search-form
 /* ---------------------------------------END--- */
@@ -477,18 +612,30 @@
 	width: 100%
 	margin-bottom: 30px
 
+	+max-screen($mq_menu)
+		display: block
+
 	&__i
 		display: table-cell
 		vertical-align: top
+		+max-screen($mq_menu)
+			display: block
+			text-align: center
 
 		&_phone
 			font-size: 16px
 			color: #333
 			font-weight: bold
 			width: 30%
+			+max-screen($mq_menu)
+				width: 100%
+				margin-bottom: 15px
 
 		&_partner-1
 			width: 39%
+			+max-screen($mq_menu)
+				width: 100%
+				margin-bottom: 15px
 
 	&__a
 		border-bottom: none
@@ -580,6 +727,18 @@
 		padding-left: 92px
 		position: relative
 		min-height: 70px
+		+max-screen($mq_menu)
+			padding-top: 72px
+			padding-right: 15px
+			padding-left: 15px
+			text-align: center
+		+max-screen($mq_inf)
+			width: 100%
+			border-bottom: 1px solid $border_color_light
+			padding-bottom: 20px
+
+			&:last-child
+				border-bottom: none
 
 	&__date
 		display: block
@@ -593,6 +752,13 @@
 		position: absolute
 		top: 0
 		left: 0
+		+transition-property(background, text-shadow)
+		+transition-duration($link_animation-time)
+
+		+max-screen($mq_menu)
+			left: 50%
+			margin-left: -34px
+
 
 	&__number
 		+rem(font-size, 36px)
@@ -607,6 +773,11 @@
 
 	&__a
 		+link-color ($color: #000)
+
+	&__h:hover + &__date 
+		background: #d11748
+		text-shadow: 0 0 10px rgba(0, 0, 0, .5)
+
 
 	&__property
 		+rem(font-size, 12px)
@@ -638,6 +809,10 @@
 		width: 33%
 		padding-right: 50px
 		@extend %bszbb
+
+		+max-screen($mq_teasers)
+			width: 100%
+			padding-right: 0
 
 	&__date
 		+rem(font-size, 12px)
@@ -765,10 +940,22 @@
 		padding: 35px 40px
 		background: $bg_color_light
 
+		+max-screen($mq_detail)
+			display: block
+
+		
+
 	&__poster
 		display: table-cell
 		vertical-align: top
 		width: $poster_w
+
+		+max-screen($mq_inf)
+			width: $poster_w_m
+
+		+max-screen($mq_detail)
+			display: block
+			width: 100%
 
 	&__img
 		display: block
@@ -788,21 +975,39 @@
 		padding: 0
 		padding: 13px 0
 		border-top: 1px dotted $border_color
+		@extend %bszbb
 
 		&:first-child
+			border-top: none
+
+		+max-screen($mq_menu)
+			float: none
+			width: 100%
+			padding: 0
 			border-top: none
 
 	&__label:first-child + &__value
 		border-top: none
 
+	&__label
+		padding-right: 15px
+
 	&__value
 		font-weight: bold
+		+max-screen($mq_menu)
+			margin-bottom: 15px
 
 	& &__poster-ctrl
 		display: block
 		position: relative
 		outline: none
 		width: $poster_w
+
+		+max-screen($mq_inf)
+			width: $poster_w_m
+
+		+max-screen($mq_detail)
+			width: 100%
 
 		&:hover
 			&:before
