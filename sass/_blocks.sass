@@ -467,6 +467,9 @@
 		&_partner-1
 			width: 39%
 
+	&__a
+		border-bottom: none
+
 /* inf
 /* ---------------------------------------END--- */
 
@@ -662,6 +665,29 @@
 
 
 /* more-link
+/* ---------------------------------------END--- */
+
+
+/* gallery
+/* --------------------------------------------- */
+
+.gallery
+	margin-bottom: 20px
+
+	.fotorama__arr
+		width: image-width( sprite-path("arrow-left") )
+		height: image-height( sprite-path("arrow-left") )
+		margin-top: - image-height( sprite-path("arrow-left") )/2
+
+	.fotorama__arr--prev
+		+sprite-icon("arrow-left")
+
+	.fotorama__arr--next
+		+sprite-icon("arrow-right")
+
+
+
+/* gallery
 /* ---------------------------------------END--- */
 
 

@@ -737,7 +737,7 @@ textarea {
 /* --------------------------------------------- */
 .location-icon {
   display: inline-block;
-  background: url('../img/icons-sda3602f956.png') 0 -283px no-repeat;
+  background: url('../img/icons-s1a4630517d.png') 0 -283px no-repeat;
   width: 10px;
   height: 13px;
   position: relative;
@@ -751,7 +751,7 @@ textarea {
 /* --------------------------------------------- */
 .email-icon {
   display: inline-block;
-  background: url('../img/icons-sda3602f956.png') 0 -297px no-repeat;
+  background: url('../img/icons-s1a4630517d.png') 0 -297px no-repeat;
   width: 13px;
   height: 9px;
   position: relative;
@@ -879,7 +879,7 @@ textarea {
   top: 50%;
   margin-top: -8px;
   right: 12px;
-  background: url('../img/icons-sda3602f956.png') 0 -307px no-repeat;
+  background: url('../img/icons-s1a4630517d.png') 0 -307px no-repeat;
   width: 16px;
   height: 16px;
 }
@@ -972,7 +972,7 @@ textarea {
   left: 50%;
   margin-top: -10.5px;
   margin-left: -6.5px;
-  background: url('../img/icons-sda3602f956.png') 0 -324px no-repeat;
+  background: url('../img/icons-s1a4630517d.png') 0 -324px no-repeat;
   width: 17px;
   height: 21px;
 }
@@ -990,7 +990,7 @@ textarea {
   left: 50%;
   margin-top: -11.5px;
   margin-left: -5.5px;
-  background: url('../img/icons-sda3602f956.png') 0 -259px no-repeat;
+  background: url('../img/icons-s1a4630517d.png') 0 -259px no-repeat;
   width: 11px;
   height: 23px;
 }
@@ -1062,6 +1062,9 @@ textarea {
 }
 .inf__i_partner-1 {
   width: 39%;
+}
+.inf__a {
+  border-bottom: none;
 }
 
 /* inf */
@@ -1262,12 +1265,35 @@ textarea {
   top: 50%;
   margin-top: -5.5px;
   left: -22px;
-  background: url('../img/icons-sda3602f956.png') 0 -234px no-repeat;
+  background: url('../img/icons-s1a4630517d.png') 0 -234px no-repeat;
   width: 16px;
   height: 15px;
 }
 
 /* more-link */
+/* ---------------------------------------END--- */
+/* gallery */
+/* --------------------------------------------- */
+.gallery {
+  margin-bottom: 20px;
+}
+.gallery .fotorama__arr {
+  width: 39px;
+  height: 116px;
+  margin-top: -58px;
+}
+.gallery .fotorama__arr--prev {
+  background: url('../img/icons-s1a4630517d.png') 0 0 no-repeat;
+  width: 39px;
+  height: 116px;
+}
+.gallery .fotorama__arr--next {
+  background: url('../img/icons-s1a4630517d.png') 0 -117px no-repeat;
+  width: 39px;
+  height: 116px;
+}
+
+/* gallery */
 /* ---------------------------------------END--- */
 
 
