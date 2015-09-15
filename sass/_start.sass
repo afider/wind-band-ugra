@@ -12,25 +12,37 @@ p
 	margin: 0 0 $content_bot_space 0
 
 ul
-	margin: 0 0 $content_bot_space -20px
+	margin: 0 0 5px -23px
 
 ol
-	margin: 0 0 $content_bot_space -20px
+	margin: 0 0 5px -23px
 
 ul li,
 ol li
-	margin-bottom: 8px
+	margin-bottom: 15px
+	padding-left: 4px
 
-.lst-bullet
-	margin: 0 0 10px 0
+.color-bullets
+	margin: 0 0 5px 0
 	padding: 0
+	list-style-type: none
 
 	& li 
 		display: block
-		padding: 0 0 10px 25px
-		background: url("#{$img_path}list-bullet.png") 10px 0 no-repeat
-		list-style-type: none
+		padding: 0 0 0 20px
+		position: relative
 
+		&:before
+			content: ''
+			display: block
+			position: absolute
+			top: 8px
+			left: 0
+			width: 6px
+			height: 6px
+			border-radius: 50%
+			background: $main_color_light
+		
 
 /*  Headers
 /*  -------------------------------------------- */
@@ -41,7 +53,10 @@ ol li
 	line-height: 1.3
 	font-weight: normal
 	text-transform: uppercase
-	
+
+#{headings(2, 6)}
+	margin-top: 35px
+
 #{headings(1, 1)}
 	font-weight: bold
 	+rem(font-size, 24px)

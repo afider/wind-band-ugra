@@ -60,6 +60,10 @@
 	width: 100%
 	min-width: $page_w
 
+	img
+		max-width: 100%
+		height: auto
+
 	// &__content
 	// 	overflow: hidden
 	// 	margin: 0 230px
@@ -198,6 +202,10 @@
 	background: $page_color
 	@extend %clear
 
+	&_no-bottom-space &__body
+		margin-bottom: 0
+		
+
 	&_bg_dark
 		background: $bg_color
 
@@ -277,6 +285,23 @@
 	height: $search_button_dim
 	position: relative
 	background: $main_color_dark
+
+	::-webkit-input-placeholder
+		color: #fff
+		font-style: italic
+		+rem(font-size, 12px)
+		
+
+	::-moz-placeholder
+		color: #fff
+		font-style: italic
+		+rem(font-size, 12px)
+		
+
+	input:-ms-input-placeholder
+		color: #fff
+		font-style: italic
+		+rem(font-size, 12px)
 
 	&:before
 		content: ''
@@ -422,21 +447,19 @@
 /* --------------------------------------------- */
 
 .table 
-	margin-bottom: 20px
+	margin-bottom: $content_bot_space
 	width: 100%
-	border: 2px solid #e9ecee
-
-	&__h td,
-	& th 
-		font-size: 13px
-		font-weight: bold
-		color: #888
-		background: #e9ecee
 
 	& th,
 	& td
-		padding: 10px 14px
-		border-bottom: 1px solid #e9ecee
+		padding: 15px 20px
+		border-bottom: 1px dotted $border_color
+
+	&__h td,
+	& th 
+		text-align: left
+		font-weight: bold
+		border-bottom: 1px solid $main_color_light
 
 	&__line
 		background: #f6f6f6
@@ -520,9 +543,15 @@
 /* --------------------------------------------- */
 
 .separator
-	margin-bottom: 35px
+	margin: 0 0 35px 0
+	padding: 0
 	height: 1px
 	background: $border_color_light
+	display: block
+	border: none
+
+	&_no-bottom-space
+		margin-bottom: 0
 
 /* separator
 /* ---------------------------------------END--- */
@@ -629,6 +658,16 @@
 /* ---------------------------------------END--- */
 
 
+/* txt-to-right
+/* --------------------------------------------- */
+
+.txt-to-right
+	text-align: right
+
+/* txt-to-right
+/* ---------------------------------------END--- */
+
+
 /* h-right-txt
 /* --------------------------------------------- */
 
@@ -691,3 +730,477 @@
 /* ---------------------------------------END--- */
 
 
+/* date
+/* --------------------------------------------- */
+
+.date
+	color: $text_color_light
+	margin-bottom: 3px
+
+/* date
+/* ---------------------------------------END--- */
+
+
+/* thin-h
+/* --------------------------------------------- */
+
+.thin-h
+	font-weight: normal
+
+/* thin-h
+/* ---------------------------------------END--- */
+
+
+/* detail
+/* --------------------------------------------- */
+
+.detail
+	display: table
+	width: 100%
+	margin-bottom: 45px
+
+	&__body
+		display: table-cell
+		vertical-align: top
+		padding: 35px 40px
+		background: $bg_color_light
+
+	&__poster
+		display: table-cell
+		vertical-align: top
+		width: $poster_w
+
+	&__img
+		display: block
+
+	&__props
+		display: block
+		margin: 0
+		padding: 0
+		@extend %clear
+		
+	&__label,
+	&__value
+		display: block
+		float: left
+		width: 50%
+		margin: 0
+		padding: 0
+		padding: 13px 0
+		border-top: 1px dotted $border_color
+
+		&:first-child
+			border-top: none
+
+	&__label:first-child + &__value
+		border-top: none
+
+	&__value
+		font-weight: bold
+
+	& &__poster-ctrl
+		display: block
+		position: relative
+		outline: none
+		width: $poster_w
+
+		&:hover
+			&:before
+				background: $bg_color_light
+				+opacity(1)
+
+		&:before
+			content: ''
+			display: block
+			position: absolute
+			top: 0
+			right: 0
+			width: 62px
+			height: 58px
+			background: #fff
+			+opacity(.85)
+			+transition-property(background, opacity)
+			+transition-duration($link_animation-time)
+		
+		&:after
+			content: ''
+			display: block
+			position: absolute
+			top: 14px
+			right: 16px
+			+sprite-icon("zoom-in")
+
+
+/* detail
+/* ---------------------------------------END--- */
+
+
+/* description
+/* --------------------------------------------- */
+
+.description
+	padding-right: $poster_w + 45
+	margin-bottom: 35px
+
+/* description
+/* ---------------------------------------END--- */
+
+/* b
+/* --------------------------------------------- */
+
+.b
+	font-weight: bold
+
+/* b
+/* ---------------------------------------END--- */
+
+
+/* columns
+/* --------------------------------------------- */
+
+.columns
+	margin-left: -40px
+
+	&__row
+		display: table
+		width: 100%
+
+	&__i
+		display: table-cell
+		vertical-align: top !important
+		width: 50%
+		padding-left: 40px
+		position: relative
+
+
+
+/* columns
+/* ---------------------------------------END--- */
+
+
+/* note
+/* --------------------------------------------- */
+
+.note
+	border-left: 2px solid $main_color_light
+	padding: 20px
+	font-style: italic
+	color: $text_color_gray
+
+/* note
+/* ---------------------------------------END--- */
+
+
+/* content-img
+/* --------------------------------------------- */
+
+.content-img
+	margin: 0 0 $content_bot_space 0
+	padding: 0
+	
+	&_lt_left
+		float: left
+		margin-right: 42px
+
+	&__img
+		display: block
+		margin-bottom: 20px
+		
+	&__legend
+		font-style: italic
+		color: $text_color_gray
+
+/* content-img
+/* ---------------------------------------END--- */
+
+
+/* form-elements
+/* --------------------------------------------- */
+
+
+::-webkit-input-placeholder
+	color: $placeholder_color
+	
+
+::-moz-placeholder
+	color: $placeholder_color
+	
+
+input:-ms-input-placeholder
+	color: $placeholder_color
+
+.form-panel
+	background: $bg_color_light
+	padding: 20px 20px 0 20px
+	@extend %clear
+
+	&_fix-w
+		width: 65%
+		
+
+	&__body
+		margin-bottom: 20px
+
+.form-line
+	margin-bottom: $content_bot_space
+	white-space: nowrap
+
+	&_no-bot-space
+		margin-bottom: 0
+
+	&_align_center
+		text-align: center
+
+	&_align_right
+		text-align: right
+
+.space-left
+	margin-left: 20px
+
+.form-txt
+	display: inline-block
+	vertical-align: middle
+
+
+.form-col
+	display: inline-block
+	vertical-align: top
+
+.input
+	padding: 0 16px
+	width: 350px
+	border: none
+	border: 1px solid $border_color
+	font-family: $font_main
+
+	@extend %bszbb
+
+	background: #fff
+	+transition-property(border, box-shadow)
+	+transition-duration(0.2s)
+	+transition-timing-function(linear)
+	
+	&_space_left
+		margin-left: $space_left
+
+	&_w_fluid
+		width: 100% !important
+
+	&:focus
+		border-color: rgba($focus_color, 0.6)
+		outline: 0
+		outline: thin dotted 9
+		+box-shadow(0 0 5px rgba($focus_color, 0.6))
+
+	&.is-filled
+		border-color: $focus_color
+
+input.input
+	height: $input-height
+	vertical-align: middle
+
+textarea.input
+	height: 154px
+	padding: 15px
+	vertical-align: top
+
+input.input_stt_error,
+textarea.input_stt_error
+	border: 1px solid #ff0000
+
+select
+	// -webkit-appearance: none
+	// -moz-appearance: none
+	// appearance: none
+	width: 350px
+	padding: 8px 14px
+	.ie9 &
+		padding: 0
+
+	option
+		padding: 8px 14px
+		display: block
+		.ie9 &
+			padding: 0
+
+.form-label
+	display: block
+	line-height: $menu-line-height
+	margin-bottom: 5px
+
+.required-mark
+	color: #ff0000
+	+rem(font-size, 17px)
+
+.placeholder
+	color: $placeholder_color
+
+.form-success
+	color: #0BAC31
+
+
+.form-fail
+	background: #fff
+	color: #F33434
+	
+
+.form-success,
+.form-fail
+	padding: 20px
+	background: #fff
+	font-style: italic
+	border: 1px solid $border_color
+
+
+/* form-elements
+/* ---------------------------------------END--- */
+
+
+/* cr (custom checkbox/radio)
+/* --------------------------------------------- */
+
+.cr
+	cursor: pointer
+	position: relative
+	@extend %bszbb
+	padding: 1px 0 1px 23px
+	vertical-align: middle
+	overflow: hidden
+	display: inline-block
+	line-height: $menu-line-height
+	min-height: 16px
+
+	&.on
+		
+
+
+	&_space_left
+		margin-left: $space_left
+
+	input
+		position: absolute
+		top: 4px
+		left: 0
+		left: -99999px
+
+	&:before
+		@extend %bszbb
+		content: ''
+		display: block
+		position: absolute
+		top: 2px
+		left: 0
+		width: 16px
+		height: 16px
+		border: 1px solid $border_color
+		background-color: #fff
+
+	&:after
+		content: ''
+		display: block
+		position: absolute
+		+transition-duration(.3s)
+		
+
+	&.is-radio:after
+		width: 6px
+		height: 6px
+		border-radius: 50%
+		top: 9px
+		left: 7px
+		margin-left: -2px
+		margin-top: -2px
+		background: $main_color_light
+		@include scale(0)
+		+transition-property(all)
+
+	&.is-radio:before
+		border-radius: 12px
+		+transition-property(all)
+
+	&.is-radio.on:before
+		//border-color: $focus_color
+
+	&.is-radio.on:after
+		@include scale(1)
+
+	&.is-checkbox:before
+		
+
+	&.is-checkbox.on:before
+		//border-color: $focus_color
+	
+	&.is-checkbox:after
+		content: ''
+		display: block
+		position: absolute
+		+sprite-icon("checked")
+		left: 4px
+		top: 6px
+		+opacity(0)
+		+transition-duration(.3s)
+
+	&.is-checkbox.on:after
+		+opacity(1)
+
+
+/* cr (custom checkbox/radio)
+/* ---------------------------------------END--- */
+
+
+/* button
+/* --------------------------------------------- */
+
+
+.button
+	position: relative
+	display: inline-block
+	overflow: visible
+	border: none
+	font-weight: bold
+	color: #fff !important
+	text-align: center
+	text-decoration: none
+	cursor: pointer
+	vertical-align: middle
+	outline: none
+	+rem(font-size, 14px)
+	text-transform: uppercase
+	padding: 0 30px
+	white-space: nowrap
+	height: $input-height
+	line-height: $input-height
+	user-select: none
+	background-color: $main_color_light
+	@extend %bszbb
+	+transition-duration(.9s)
+	+transition-property(background-color)
+
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+
+
+	&:active
+		+box-shadow(inset 0px 3px 7px rgba(#000, .6))
+		line-height: $input-height + 2
+
+	&:hover
+		background-color: #d11748
+		+transition-duration(.2s)
+
+	&_disabled
+		background: $bg_color
+		&:hover
+			background: $bg_color
+
+	&_lt_right-bottom
+		position: absolute
+		right: 0
+		bottom: 0
+	
+
+/* button
+/* ---------------------------------------END--- */
