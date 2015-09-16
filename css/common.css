@@ -1680,7 +1680,6 @@ input:-ms-input-placeholder {
 
 .form-line {
   margin-bottom: 20px;
-  white-space: nowrap;
 }
 .form-line_no-bot-space {
   margin-bottom: 0;
@@ -1743,7 +1742,6 @@ input:-ms-input-placeholder {
 .input.is-filled {
   border-color: #35020c;
 }
-
 input.input {
   height: 38px;
   vertical-align: middle;
@@ -1774,7 +1772,6 @@ select option {
 .ie9 select option {
   padding: 0;
 }
-
 .form-label {
   display: block;
   line-height: 1.3;
@@ -1796,7 +1793,6 @@ select option {
 }
 
 .form-fail {
-  background: #fff;
   color: #F33434;
 }
 
@@ -2667,6 +2663,14 @@ img.mfp-img {
 
   .detail .detail__poster-ctrl {
     width: 100%;
+  }
+
+  .input {
+    width: 100% !important;
+  }
+
+  select {
+    width: 100% !important;
   }
 }
 

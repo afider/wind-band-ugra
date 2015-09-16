@@ -1263,7 +1263,6 @@ input:-ms-input-placeholder
 
 .form-line
 	margin-bottom: $content_bot_space
-	white-space: nowrap
 
 	&_no-bot-space
 		margin-bottom: 0
@@ -1315,6 +1314,9 @@ input:-ms-input-placeholder
 	&.is-filled
 		border-color: $focus_color
 
+	+max-screen($mq_detail)
+		width: 100% !important
+
 input.input
 	height: $input-height
 	vertical-align: middle
@@ -1343,6 +1345,9 @@ select
 		.ie9 &
 			padding: 0
 
+	+max-screen($mq_detail)
+		width: 100% !important
+
 .form-label
 	display: block
 	line-height: $menu-line-height
@@ -1360,7 +1365,6 @@ select
 
 
 .form-fail
-	background: #fff
 	color: #F33434
 	
 
