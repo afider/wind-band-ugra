@@ -102,6 +102,18 @@
 
         });
 
+
+        // анимация родительских пунктов меню
+        $(".main-nav__i_parent").on('click', function(e) {
+            e.preventDefault();
+
+            var self = $(this),
+                target = $('.' + self.data('nav'));
+
+            self.toggleClass('main-nav__i_open');
+
+        });
+
         // анимация мобильного меню
         $(".js-nav-ctrl").on('click', function(e) {
             e.preventDefault();
@@ -111,6 +123,9 @@
             self.toggleClass('is-open');
             target.toggleClass('is-open');
         });
+
+        // инициализация плагина для адаптивных таблиц
+        $('.table_responsive').cardtable();
         
 
     });

@@ -12,6 +12,7 @@
 	<script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/common.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/stacktable.js"></script>
 </head>
 
 <body>
@@ -34,10 +35,26 @@
 
 					<nav class="main-nav">
 						<ul class="main-nav__lst">
-							<li class="main-nav__i main-nav__i_parent"><a href="#" class="main-nav__a">О нас</a></li>
+							<li class="main-nav__i main-nav__i_parent">
+								<a href="#" class="main-nav__a">О нас</a>
+								<ul class="main-nav__sub">
+									<li class="main-nav__sub-i">
+										<a href="#" class="main-nav__sub-a">Видео</a>
+									</li>
+									<li class="main-nav__sub-i">
+										<a href="#" class="main-nav__sub-a">Аудио</a>
+									</li>
+									<li class="main-nav__sub-i main-nav__sub-i_active">
+										<a href="#" class="main-nav__sub-a">Пресса о нас</a>
+									</li>
+									<li class="main-nav__sub-i">
+										<a href="#" class="main-nav__sub-a">Документация</a>
+									</li>
+								</ul>
+							</li>
 							<li class="main-nav__i"><a href="#" class="main-nav__a">Афиша</a></li>
 							<li class="main-nav__i"><a href="#" class="main-nav__a">Календарь мероприятий</a></li>
-							<li class="main-nav__i"><a href="#" class="main-nav__a">Вакансии</a></li>
+							<li class="main-nav__i main-nav__i_active"><a href="#" class="main-nav__a">Вакансии</a></li>
 							<li class="main-nav__i"><a href="#" class="main-nav__a">Контакты</a></li>
 						</ul>
 					</nav>
@@ -146,23 +163,27 @@
 				
 				<p>Газопылевое облако ищет популяционный индекс. Противостояние, сублимиpуя с повеpхности ядpа кометы, стабильно. Возмущающий фактор, следуя пионерской работе Эдвина Хаббла, иллюстрирует эксцентриситет. Газопылевое облако, на первый взгляд, иллюстрирует астероид. Спектральный класс выслеживает далекий зенит. Весеннее равноденствие непрерывно.</p>
 				
-				<table class="table">
-					<tr>
-						<th>Произведение</th>
-						<th>Год</th>
-					</tr>
-					<tr>
-						<td>Трио для фортепиано, скрипки и виолончели Oр. 8 g-mol</td>
-						<td>1829</td>
-					</tr>
-					<tr>
-						<td>Вариации на тему из оперы «Дон-Жуан» Oр. 2 B-dur</td>
-						<td>1827</td>
-					</tr>
-					<tr>
-						<td>«Большая фантазия на польские темы»</td>
-						<td>1829 - 1830</td>
-					</tr>
+				<table class="table table_responsive">
+					<thead>
+						<tr>
+							<th>Произведение</th>
+							<th>Год</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Трио для фортепиано, скрипки и виолончели Oр. 8 g-mol</td>
+							<td>1829</td>
+						</tr>
+						<tr>
+							<td>Вариации на тему из оперы «Дон-Жуан» Oр. 2 B-dur</td>
+							<td>1827</td>
+						</tr>
+						<tr>
+							<td>«Большая фантазия на польские темы»</td>
+							<td>1829 - 1830</td>
+						</tr>
+					</tbody>
 				</table>
 
 				<h2>Написать нам</h2>
@@ -197,7 +218,9 @@
 										</div><!-- form-line -->
 									</div><!-- columns__i -->
 									<div class="columns__i">
-										<textarea name="form-panel_mess" id="form-panel_mess" cols="40" rows="5" class="input input_w_fluid"></textarea>
+										<div class="form-line">
+											<textarea name="form-panel_mess" id="form-panel_mess" cols="40" rows="5" class="input input_w_fluid"></textarea>
+										</div><!-- form-line -->
 									</div><!-- columns__i -->
 								</div><!-- columns__row -->
 								<div class="columns__row">

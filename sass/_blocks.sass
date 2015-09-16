@@ -158,7 +158,7 @@
 	&__i
 		width: 40px
 		height: 4px
-		background: #FFE2AB
+		background: $menu_color
 		position: absolute
 		left: 0
 		+transition-duration(.5s)
@@ -339,6 +339,7 @@
 		padding: 0
 		display: table-cell
 		vertical-align: middle
+		position: relative
 
 		+max-screen($mq_menu)
 			display: block
@@ -351,7 +352,7 @@
 		padding: 0 25px
 		white-space: nowrap
 		outline: none
-		+link-color ($color: #FFE2AB, $color_hover: #fff, $color_visited: none)
+		+link-color ($color: $menu_color, $color_hover: #fff, $color_visited: none)
 		+transition-property(background)
 		text-transform: uppercase
 
@@ -360,9 +361,10 @@
 			line-height: 55px
 			text-align: left
 
-		&:hover
-			background: $main_color_light
-			+transition-duration(.1s)
+	&__i:hover &__a,
+	&__i_open &__a
+		background: $main_color_light
+		+transition-duration(.1s)
 
 	&__i_parent &__a
 		&:after
@@ -373,18 +375,83 @@
 			height: 0
 			border-style: solid
 			border-width: 5px 4.5px 0 4.5px
-			border-color: #ffe2ab transparent transparent transparent
+			border-color: $menu_color transparent transparent transparent
 			+transition-property(border-color)
 			position: relative
-			top: -1px
+			top: -2px
 
 	&__i_parent &__a:hover
 		&:after
 			border-color: #fff transparent transparent transparent
 
+	&__i_open &__a
+		&:after
+			border-width: 0 4.5px 5px 4.5px
+			border-color: transparent transparent $menu_color  transparent
+			top: -2px
+
+	&__i_open &__a:hover
+		&:after
+			border-color: transparent transparent #fff  transparent
+
 	&__i_active &__a
 		color: #fff !important
+
+	&__sub
+		visibility: hidden
+		+opacity(0)
+		margin: 0
+		padding: 0
+		list-style-type: none
+		position: absolute
+		top: 100%
+		left: 0
+		width: 300px
+		background: $main_color
+		+transition-property(visibility, opacity)
+		+transition-duration(.2s)
+
+		+max-screen($mq_menu)
+			position: relative
+			visibility: visible
+			+opacity(1)
+			display: none
+			background: $main_color_dark
+			width: 100%
+
+	&__i_open &__sub
+		visibility: visible
+		+opacity(1)
+
+		+max-screen($mq_menu)
+			display: block
 		
+
+	&__sub-i
+		display: block
+		margin: 0
+		padding: 0
+		+rem(font-size, 16px)
+		
+
+	&__sub-a
+		display: block
+		padding: 16px 25px
+		+link-color ($color: $menu_color, $color_hover: #fff, $color_visited: none)
+		+transition-property(background)
+
+		&:hover
+			background: $main_color_light
+			+transition-duration(.1s)
+
+		+max-screen($mq_menu)
+			padding-left: 50px
+
+
+	&__sub-i_active &__sub-a
+		color: #fff !important
+		
+
 
 /* main-nav
 /* ---------------------------------------END--- */
@@ -410,6 +477,8 @@
 		+rem(font-size, 12px)
 		+max-screen($mq_menu)
 			+rem(font-size, 20px)
+			font-style: normal
+			color: $menu_color
 		
 
 	::-moz-placeholder
@@ -418,6 +487,8 @@
 		+rem(font-size, 12px)
 		+max-screen($mq_menu)
 			+rem(font-size, 20px)
+			font-style: normal
+			color: $menu_color
 		
 
 	input:-ms-input-placeholder
@@ -426,6 +497,8 @@
 		+rem(font-size, 12px)
 		+max-screen($mq_menu)
 			+rem(font-size, 20px)
+			font-style: normal
+			color: $menu_color
 
 	&:before
 		content: ''
@@ -599,6 +672,20 @@
 	&__line
 		background: #f6f6f6
 
+
+.small-only
+	display: none
+	border: 1px solid $main_color_light
+
+	+max-screen($mq_menu)
+		display: table
+
+.large-only
+	+max-screen($mq_menu)
+		display: none
+
+.st-key
+	font-weight: bold
 	
 /* table
 /* ---------------------------------------END--- */
@@ -848,11 +935,24 @@
 
 .h-right-txt
 	position: relative
+	+max-screen($mq_menu)
+		margin-bottom: 10px
 
 	& &__content
 		position: absolute
 		bottom: 5px
 		right: 0
+
+		+max-screen($mq_menu)
+			position: relative
+			text-align: center
+			margin-bottom: 10px
+
+	&__h
+		+max-screen($mq_menu)
+			margin-bottom: 10px
+
+
 
 /* h-right-txt
 /* ---------------------------------------END--- */
@@ -1047,6 +1147,9 @@
 	padding-right: $poster_w + 45
 	margin-bottom: 35px
 
+	+max-screen($mq_menu)
+		padding-right: 0
+
 /* description
 /* ---------------------------------------END--- */
 
@@ -1076,6 +1179,11 @@
 		width: 50%
 		padding-left: 40px
 		position: relative
+		@extend %bszbb
+
+		+max-screen($mq_inf)
+			width: 100%
+			display: block
 
 
 
@@ -1106,6 +1214,10 @@
 	&_lt_left
 		float: left
 		margin-right: 42px
+
+		+max-screen($mq_inf)
+			float: none
+			margin-right: 0
 
 	&__img
 		display: block
@@ -1138,9 +1250,12 @@ input:-ms-input-placeholder
 	background: $bg_color_light
 	padding: 20px 20px 0 20px
 	@extend %clear
+	@extend %bszbb
 
 	&_fix-w
 		width: 65%
+		+max-screen($mq_menu)
+			width: 100%
 		
 
 	&__body

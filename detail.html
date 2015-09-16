@@ -12,6 +12,7 @@
 	<script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/common.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/stacktable.js"></script>
 </head>
 
 <body>
@@ -34,10 +35,26 @@
 
 					<nav class="main-nav">
 						<ul class="main-nav__lst">
-							<li class="main-nav__i main-nav__i_parent"><a href="#" class="main-nav__a">О нас</a></li>
+							<li class="main-nav__i main-nav__i_parent">
+								<a href="#" class="main-nav__a">О нас</a>
+								<ul class="main-nav__sub">
+									<li class="main-nav__sub-i">
+										<a href="#" class="main-nav__sub-a">Видео</a>
+									</li>
+									<li class="main-nav__sub-i">
+										<a href="#" class="main-nav__sub-a">Аудио</a>
+									</li>
+									<li class="main-nav__sub-i main-nav__sub-i_active">
+										<a href="#" class="main-nav__sub-a">Пресса о нас</a>
+									</li>
+									<li class="main-nav__sub-i">
+										<a href="#" class="main-nav__sub-a">Документация</a>
+									</li>
+								</ul>
+							</li>
 							<li class="main-nav__i"><a href="#" class="main-nav__a">Афиша</a></li>
 							<li class="main-nav__i"><a href="#" class="main-nav__a">Календарь мероприятий</a></li>
-							<li class="main-nav__i"><a href="#" class="main-nav__a">Вакансии</a></li>
+							<li class="main-nav__i main-nav__i_active"><a href="#" class="main-nav__a">Вакансии</a></li>
 							<li class="main-nav__i"><a href="#" class="main-nav__a">Контакты</a></li>
 						</ul>
 					</nav>
@@ -130,7 +147,7 @@
 				<hr class="separator" />
 
 				<div class="h-right-txt">
-					<h1>Похожие мероприятия</h1>
+					<h1 class="h-right-txt__h">Похожие мероприятия</h1>
 					<a href="#" class="h-right-txt__content more-link">Все мероприятия</a>
 				</div>
 
