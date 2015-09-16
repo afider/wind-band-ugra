@@ -1522,6 +1522,9 @@ textarea {
 }.detail__img {
   display: block;
 }
+.ie9 .detail__img {
+  width: 100%;
+}
 .detail__props {
   display: block;
   margin: 0;
