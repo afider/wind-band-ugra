@@ -1968,6 +1968,29 @@ select option {
 
 /* button */
 /* ---------------------------------------END--- */
+/* test */
+/* --------------------------------------------- */
+.test {
+  display: inline-block;
+  position: relative;
+}
+.test__body {
+  position: absolute;
+  background: #9b0029;
+  left: -10px;
+  right: -10px;
+  bottom: 100%;
+  margin-bottom: 4px;
+  height: 32px;
+  line-height: 32px;
+  font-weight: normal;
+  color: #fff;
+  font-size: 12px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+/* test */
+/* ---------------------------------------END--- */
 /* Magnific Popup CSS */
 .mfp-bg {
   top: 0;
@@ -2615,6 +2638,12 @@ img.mfp-img {
 
   .form-panel_fix-w {
     width: 100%;
+  }
+
+  .test__body {
+    position: relative;
+    left: 0;
+    right: 0;
   }
 }
 
