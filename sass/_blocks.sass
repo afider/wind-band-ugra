@@ -1563,3 +1563,159 @@ select
 
 /* test
 /* ---------------------------------------END--- */
+
+
+/* calendar
+/* --------------------------------------------- */
+
+.calendar
+	$calendar_days_w: 50%
+	$calendar_days_h: 60px
+	margin-bottom: $content_bot_space
+	@extend %clear
+	display: table
+	width: 100%
+
+	&__ctrl
+		width: (100% / 7)
+		height: $calendar_days_h
+		position: absolute
+		top: 0
+		//background: red
+		z-index: 2
+		cursor: pointer
+		border: none !important
+		background: $page_color
+		+transition-property(background)
+		+transition-duration(.5s)
+
+		&:before
+			content: ''
+			display: block
+			position: absolute
+			top: 50%
+			left: 50%
+
+		&:hover
+			background: $bg_color_light
+
+		&_prev
+			left: -1px
+			&:before
+				margin-top: - image-height( sprite-path("small-arrow-left") )/2
+				margin-left: - image-width( sprite-path("small-arrow-left") )/2
+				+sprite-icon("small-arrow-left")
+	
+
+		&_prev:active
+			&:before
+				margin-left: - image-width( sprite-path("small-arrow-left") )/2 - 1
+
+		&_next
+			right: 0
+			&:before
+				margin-top: - image-height( sprite-path("small-arrow-right") )/2
+				margin-left: - image-width( sprite-path("small-arrow-right") )/2
+				+sprite-icon("small-arrow-right")
+		&_next:active
+			&:before
+				margin-left: - image-width( sprite-path("small-arrow-right") )/2 + 1
+
+	&__month
+		height: $calendar_days_h
+		line-height: $calendar_days_h
+		padding: 0 (100% / 7) 
+		text-align: center
+		+rem(font-size, 20px)
+		text-transform: uppercase
+
+	&__days
+		display: table-cell
+		position: relative
+		width: $calendar_days_w
+		//background: #F5D797
+		border-left: 1px solid $bg_color_darkest
+		border-bottom: 1px solid $bg_color_darkest
+		@extend %bszbb
+		vertical-align: top
+
+	&__week-day
+		background: $bg_color_darkest
+		color: #fff
+		float: left
+		width: (100% / 7)
+		border: 1px solid $bg_color_darkest
+		border-left: none
+		@extend %bszbb
+		text-transform: uppercase
+		text-align: center
+		padding: 1px 0
+
+	&__day
+		display: block
+		width: (100% / 7)
+		height: $calendar_days_h
+		line-height: $calendar_days_h
+		text-align: center
+		float: left
+		@extend %bszbb
+		@extend %font-light
+		border: 1px solid $bg_color_darkest
+		+rem(font-size, 18px)
+		border-bottom: none
+		border-left: none
+		position: relative
+
+		&_previous-month,
+		&_next-month
+			background: $bg_color_dark
+
+		&_today
+			text-decoration: underline
+			font-weight: bold
+
+		&_event
+			background: $main_color_light
+			font-weight: bold
+			color: #fff !important
+			cursor: pointer
+
+			&:before
+				content: ''
+				display: block
+				position: absolute
+				top: 0
+				left: 0
+				bottom: 0
+				right: 0
+				border: 5px solid $main_color_extra-light
+				+opacity(0)
+				+transition-property(opacity)
+				+transition-duration(.5s)
+			
+		&_event:hover
+			&:before
+				+opacity(1)
+
+	&__events
+		display: table-cell
+		width: $calendar_days_w
+		//background: #F5C3EC
+		vertical-align: middle
+		padding-left: 40px
+
+
+/* calendar
+/* ---------------------------------------END--- */
+
+
+/* calendar-events
+/* --------------------------------------------- */
+
+.calendar-events
+	&__i
+		&_over
+			background: yellow
+
+/* calendar-events
+/* ---------------------------------------END--- */

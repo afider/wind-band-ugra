@@ -79,13 +79,20 @@ ol li
 
 +font-face( $family: "Open Sans", $file_name_r: "OpenSans-Regular", $file_name_i: "OpenSans-Italic", $file_name_b: "opensans-bold", $file_name_bi: "opensans-bolditalic")
 
-+font-face( $family: "Open Sans Extra Bold", $file_name_r: "OpenSansExtraBold")	
++font-face( $family: "Open Sans Extra Bold", $file_name_r: "OpenSansExtraBold")
++font-face( $family: "Open Sans Light", $file_name_r: "OpenSansLight", $file_name_i: "OpenSansLightItalic")
 
 %font-extra-bold
 	font-family: 'Open Sans Extra Bold', $font_main
 
 .font-extra-bold
 	@extend %font-extra-bold
+
+%font-light
+	font-family: 'Open Sans Light', $font_main
+
+.font-light
+	@extend %font-light
 
 /* font
 /* ---------------------------------------END--- */
