@@ -1714,8 +1714,63 @@ select
 
 .calendar-events
 	&__i
+		margin: 0 0 25px 0
+		padding: 0
+		@extend %bszbb
+		padding-right: 80px
+		display: inline-block
+		vertical-align: top
+		padding-left: 92px
+		position: relative
+		min-height: 70px
+
 		&_over
 			background: yellow
+
+	&__date
+		display: block
+		width: 68px
+		height: 68px
+		background: $main_color_light
+		color: #fff
+		text-align: center
+		padding-top: 8px
+		@extend %bszbb
+		position: absolute
+		top: 0
+		left: 0
+		+transition-property(background, text-shadow)
+		+transition-duration($link_animation-time)
+
+		+max-screen($mq_menu)
+			left: 50%
+			margin-left: -34px
+
+	&__number
+		+rem(font-size, 36px)
+		line-height: 1
+		@extend %font-extra-bold
+
+	&__weekday
+		+rem(font-size, 12px)
+
+	&__h
+		margin-bottom: 5px
+
+	&__a
+		+link-color ($color: #000)
+
+	&__h:hover + &__date 
+		background: #d11748
+		text-shadow: 0 0 10px rgba(0, 0, 0, .5)
+
+
+	&__property
+		+rem(font-size, 12px)
+
+	&__imp
+		color: $main_color_light
+		font-weight: bold
 
 /* calendar-events
 /* ---------------------------------------END--- */

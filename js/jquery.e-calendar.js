@@ -141,10 +141,11 @@
                     var date = lpad(d.getDate(), 2) + '/' + lpad(d.getMonth(), 2) + ' ' + lpad(d.getHours(), 2) + ':' + lpad(d.getMinutes(), 2);
                     var item = $('<div/>').addClass('calendar-events__i');
                     var link = settings.events[i].link;
-                    var title = $('<a href="' + link + '" />').addClass('calendar-events__name').html(settings.events[i].title);
+                    var title = $('<div />').addClass('calendar-events__h')
+                    var eventName = $('<a href="' + link + '" />').addClass('calendar-events__a').html(settings.events[i].title);
                     //var description = $('<div/>').addClass('calendar-events__description').html(settings.events[i].description + '<br/>');
-                    var timeLabel = 'Время мероприятия';
-                    var ageLabel = 'Ограничение по возрасту';
+                    var timeLabel = 'Время мероприятия: ';
+                    var ageLabel = 'Ограничение по возрасту: ';
                     var minimumAge = $('<span/>').addClass('calendar-events__imp').html(settings.events[i].minimumAge);
                     var eventTime = $('<span/>').addClass('calendar-events__imp').html(settings.events[i].eventTime);
                     var property1 = $('<div/>').addClass('calendar-events__property').html(timeLabel);
@@ -161,7 +162,7 @@
                     //item.append(title).append(description);
                     property1.append(eventTime);
                     property2.append(minimumAge);
-
+                    title.append(eventName)
                     item.append(title)
                         .append(eventDateBlock)
                         .append(property1)
@@ -193,43 +194,54 @@
         url: '',
         events: [
             {
-                title: 'Заголовок события', 
-                link: '#1', description: 'Описание события', 
-                eventTime: '15:30', 
+                title: 'Концерт в Тюменской филармонии «Духового оркестра Югры»', 
+                link: '#1',
+                eventTime: '11:30', 
                 minimumAge: '+18', 
-                datetime: new Date(2015, 9, 29)
+                datetime: new Date(2015, 9, 6)
             },
+
             {
-                title: 'Заголовок события1111', 
-                link: '#2', 
-                description: 'Описание события11111', 
-                eventTime: '15:30', 
-                minimumAge: '+18', 
-                datetime: new Date(2015, 9, 29)
-            },
-            {
-                title: 'Заголовок события2', 
+                title: 'КТЦ «Югра-Классик». «На страже мира»', 
                 link: '#3', 
-                description: 'Описание события222', 
-                eventTime: '15:30', 
+                eventTime: '15:00', 
                 minimumAge: '+12', 
-                datetime: new Date(2015, 9, 17)
+                datetime: new Date(2015, 10, 15)
             },
             {
-                title: 'Заголовок события3', 
-                link: '#4', 
-                description: 'Описание события333', 
-                eventTime: '15:30', 
-                minimumAge: '+16', 
-                datetime: new Date(2015, 9, 23)
-            },
-            {
-                title: 'Заголовок события3', 
+                title: 'Концерт в Тюменской филармонии «Духового оркестра Югры»', 
                 link: '#5', 
-                description: 'Описание события333', 
+                eventTime: '19:55', 
+                minimumAge: '+16', 
+                datetime: new Date(2015, 10, 17)
+            },
+            {
+                title: 'Открытие концертного сезона 2015-2016 в концертном зале', 
+                link: '#2', 
+                eventTime: '09:00', 
+                minimumAge: '+18', 
+                datetime: new Date(2015, 10, 26)
+            },
+            {
+                title: 'КТЦ «Югра-Классик». Праздничный концерт к 70 летию Великой Победы', 
+                link: '#4', 
+                eventTime: '11:30', 
+                minimumAge: '+16', 
+                datetime: new Date(2015, 10, 26)
+            },
+            {
+                title: 'КТЦ «Югра-Классик». Праздничный концерт к 70 летию Великой Победы', 
+                link: '#4', 
+                eventTime: '13:45', 
+                minimumAge: '+16', 
+                datetime: new Date(2015, 11, 21)
+            },
+            {
+                title: 'Концерт в Тюменской филармонии «Духового оркестра Югры»', 
+                link: '#5', 
                 eventTime: '15:30', 
                 minimumAge: '+16', 
-                datetime: new Date(2015, 10, 23)
+                datetime: new Date(2015, 12, 6)
             }
         ]
     };
