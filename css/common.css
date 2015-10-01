@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -414,11 +415,11 @@ p {
 }
 
 ul {
-  margin: 0 0 5px -23px;
+  margin: 0 0 30px -23px;
 }
 
 ol {
-  margin: 0 0 5px -23px;
+  margin: 0 0 20px -23px;
 }
 
 ul li,
@@ -428,7 +429,7 @@ ol li {
 }
 
 .color-bullets {
-  margin: 0 0 5px 0;
+  margin: 0 0 30px 0;
   padding: 0;
   list-style-type: none;
 }
@@ -637,7 +638,7 @@ textarea {
   resize: vertical;
 }
 
-.footer__i, .search-form__input, .events__i, .events__date, .teasers__i, .detail__label, .detail__value, .columns__i, .form-panel, .input, .cr, .cr:before, .button, .calendar__days, .calendar__week-day, .calendar__day, .calendar-events__i, .calendar-events__date, .posters__col {
+.footer__i, .search-form__input, .events__i, .events__date, .teasers__i, .detail__label, .detail__value, .columns__i, .form-panel, .input, .cr, .cr:before, .button, .calendar__days, .calendar__week-day, .calendar__day, .calendar-events__i, .calendar-events__date, .posters__col, .person-detail__col_description {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -645,12 +646,12 @@ textarea {
 
 /* clearfix */
 /* --------------------------------------------- */
-.section:before, .social:before, .detail__props:before, .form-panel:before, .calendar:before, .calendar__days-wrapper:before, .posters__i:before, .section:after, .social:after, .detail__props:after, .form-panel:after, .calendar:after, .calendar__days-wrapper:after, .posters__i:after {
+.section:before, .social:before, .detail__props:before, .form-panel:before, .calendar:before, .calendar__days-wrapper:before, .posters__i:before, .person-detail:before, .section:after, .social:after, .detail__props:after, .form-panel:after, .calendar:after, .calendar__days-wrapper:after, .posters__i:after, .person-detail:after {
   display: table;
   content: "";
   clear: both;
 }
-.section:after, .social:after, .detail__props:after, .form-panel:after, .calendar:after, .calendar__days-wrapper:after, .posters__i:after {
+.section:after, .social:after, .detail__props:after, .form-panel:after, .calendar:after, .calendar__days-wrapper:after, .posters__i:after, .person-detail:after {
   clear: both;
 }
 
@@ -1305,13 +1306,14 @@ textarea {
 .separator {
   margin: 0 0 35px 0;
   padding: 0;
-  height: 1px;
-  background: #d0d0d0;
+  border-top: 1px solid #c4c4c4;
   display: block;
-  border: none;
 }
 .separator_no-bottom-space {
   margin-bottom: 0;
+}
+.separator_dotted {
+  border-top: 1px dotted #c4c4c4;
 }
 
 /* separator */
@@ -2340,6 +2342,66 @@ select option {
 }
 
 /* page-nav */
+/* ---------------------------------------END--- */
+/* person-detail */
+/* --------------------------------------------- */
+.person-detail__col {
+  float: left;
+}
+.person-detail__col_photo {
+  width: 30%;
+}
+.person-detail__col_description {
+  width: 70%;
+  padding-left: 40px;
+}
+
+/* person-detail */
+/* ---------------------------------------END--- */
+/* go-back */
+/* --------------------------------------------- */
+.go-back {
+  color: #9B0029;
+  border-color: #ff356a;
+  border-color: rgba(155, 0, 41, 0.3);
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 27px;
+}
+.go-back:visited {
+  color: #9B0029;
+  border-color: #ff356a;
+  border-color: rgba(155, 0, 41, 0.3);
+}
+.go-back:hover {
+  color: #9B0029;
+  border-color: #ff356a;
+  border-color: rgba(155, 0, 41, 0.3);
+}
+.go-back:before {
+  content: "←";
+  display: inline-block;
+  position: absolute;
+  top: -4px;
+  left: -27px;
+  font-size: 20px;
+  font-size: 2rem;
+}
+
+/* go-back */
+/* ---------------------------------------END--- */
+/* sm-sect-h */
+/* --------------------------------------------- */
+.sm-sect-h {
+  margin: 0 0 30px 0;
+  padding: 0;
+  font-size: 15px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* sm-sect-h */
 /* ---------------------------------------END--- */
 /* Magnific Popup CSS */
 .mfp-bg {

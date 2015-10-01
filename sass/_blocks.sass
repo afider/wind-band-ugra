@@ -781,13 +781,14 @@
 .separator
 	margin: 0 0 35px 0
 	padding: 0
-	height: 1px
-	background: $border_color_light
+	border-top: 1px solid $border_color
 	display: block
-	border: none
 
 	&_no-bottom-space
 		margin-bottom: 0
+
+	&_dotted
+		border-top: 1px dotted $border_color
 
 /* separator
 /* ---------------------------------------END--- */
@@ -1999,4 +2000,63 @@ select
 		padding: 6px 10px
 
 /* page-nav
+/* ---------------------------------------END--- */
+
+
+/* person-detail
+/* --------------------------------------------- */
+
+.person-detail
+	@extend %clear
+
+	&__col
+		float: left
+		&_photo
+			width: 30%
+
+		&_description
+			width: 70%
+			padding-left: 40px
+			@extend %bszbb
+
+/* person-detail
+/* ---------------------------------------END--- */
+
+
+/* go-back
+/* --------------------------------------------- */
+
+.go-back
+	$go-back-arrow_w: 27px
+	+link-color ($color: $link_color_hover, $color_visited: none)
+	position: relative
+	display: inline-block
+	vertical-align: middle
+	margin-left: $go-back-arrow_w
+
+	&:before
+		content: '\2190'
+		display: inline-block
+		position: absolute
+		top: -4px
+		left: - $go-back-arrow_w
+		+rem(font-size, 20px)
+
+		
+
+/* go-back
+/* ---------------------------------------END--- */
+
+
+/* sm-sect-h
+/* --------------------------------------------- */
+
+.sm-sect-h
+	margin: 0 0 30px 0
+	padding: 0
+	+rem(font-size, 15px)
+	text-transform: uppercase
+
+
+/* sm-sect-h
 /* ---------------------------------------END--- */
