@@ -1103,9 +1103,6 @@
 			margin-bottom: 15px
 
 	& &__poster-ctrl
-		display: block
-		position: relative
-		outline: none
 		width: $poster_w
 
 		+max-screen($mq_inf)
@@ -1113,32 +1110,6 @@
 
 		+max-screen($mq_detail)
 			width: 100%
-
-		&:hover
-			&:before
-				background: $bg_color_light
-				+opacity(1)
-
-		&:before
-			content: ''
-			display: block
-			position: absolute
-			top: 0
-			right: 0
-			width: 62px
-			height: 58px
-			background: #fff
-			+opacity(.85)
-			+transition-property(background, opacity)
-			+transition-duration($link_animation-time)
-		
-		&:after
-			content: ''
-			display: block
-			position: absolute
-			top: 14px
-			right: 16px
-			+sprite-icon("zoom-in")
 
 
 /* detail
@@ -1835,4 +1806,197 @@ select
 		font-weight: bold
 
 /* calendar-events
+/* ---------------------------------------END--- */
+
+
+/* zoom-in
+/* --------------------------------------------- */
+
+.zoom-in
+	display: block
+	position: relative
+	outline: none !important
+	
+
+	&:hover
+		&:before
+			background: $bg_color_light
+			+opacity(1)
+
+	&:before
+		content: ''
+		display: block
+		position: absolute
+		top: 0
+		right: 0
+		width: 62px
+		height: 58px
+		background: #fff
+		+opacity(.85)
+		+transition-property(background, opacity)
+		+transition-duration($link_animation-time)
+	
+	&:after
+		content: ''
+		display: block
+		position: absolute
+		top: 14px
+		right: 16px
+		+sprite-icon("zoom-in")
+
+	&__img
+		display: block
+
+/* zoom-in
+/* ---------------------------------------END--- */
+
+
+/* posters
+/* --------------------------------------------- */
+
+.posters
+
+	&__lst
+		margin: 0 0 24px 0
+		padding: 0
+		list-style-type: none
+		
+	&__i
+		margin: 0 0 36px 0
+		@extend %clear
+		border-bottom: 1px dotted $bg_color_darkest
+		&:last-child
+			border-bottom: none
+			padding-bottom: 0
+		
+	&__col
+		float: left
+		@extend %bszbb
+		margin: 0 0 36px 0
+
+		&_poster
+			width: 30%
+			padding-right: 40px
+			+max-screen($mq_posters)
+				margin-bottom: 10px
+			+max-screen($mq_posters2)
+				width: 40%
+				margin-bottom: 15px
+			+max-screen($mq_posters3)
+				padding-right: 20px
+				width: 50%
+			+max-screen($mq_posters4)
+				padding-right: 0
+				width: 80%
+			+max-screen($mq_posters5)
+				padding-right: 0
+				width: 100%
+
+		&_legend
+			width: 17.5%
+			padding-right: 40px
+
+			+max-screen($mq_posters)
+				width: 70%
+			+max-screen($mq_posters2)
+				width: auto
+			+max-screen($mq_posters4)
+				width: 100%
+				margin-bottom: 15px
+
+		&_description
+			width: 52.5%
+
+			+max-screen($mq_posters)
+				width: 70%
+			+max-screen($mq_posters2)
+				width: auto
+			+max-screen($mq_posters4)
+				width: 100%
+
+	&__property
+		margin-bottom: 10px
+
+		+max-screen($mq_posters4)
+			margin-bottom: 3px
+
+	&__name
+		margin: 0 0 20px 0
+		padding: 0
+		
+
+
+/* posters
+/* ---------------------------------------END--- */
+
+
+/* property
+/* --------------------------------------------- */
+
+.property
+	&__value
+		font-weight: bold
+
+	&__legend
+		font-style: italic
+
+/* property
+/* ---------------------------------------END--- */
+
+
+/* page-nav
+/* --------------------------------------------- */
+
+.page-nav
+	border: 1px solid $border_color_light
+	border-right: none
+	border-left: none
+	padding: 25px 0
+
+	&__lst
+		margin: 0
+		padding: 0
+		list-style-type: none
+		text-align: center
+		+max-screen($mq_page-nav)
+			text-align: left
+		
+	&__i
+		margin: 0 6px
+		padding: 0
+		display: inline-block
+		+max-screen($mq_page-nav)
+			margin-bottom: 10px
+
+		&:first-child
+			margin-right: 26px
+			+max-screen($mq_page-nav)
+				display: block
+				float: none
+				text-align: left
+				display: block
+				margin: 0 0 10px 0
+
+		&:last-child
+			margin-left: 26px
+			+max-screen($mq_page-nav)
+				display: block
+				float: none
+				text-align: left
+				display: block
+				margin: 0
+
+
+	& &__i_acitve &__a
+		background: $main_color_light
+		color: #fff
+		font-weight: bold
+
+	&__a
+		line-height: 1
+		display: block
+		border-bottom: none
+		padding: 6px 10px
+
+/* page-nav
 /* ---------------------------------------END--- */
