@@ -12,7 +12,6 @@
 	<script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/stacktable.js"></script>
-	<script src="js/jquery.e-calendar.js"></script>
 	<script src="js/common.js"></script>
 </head>
 
@@ -111,6 +110,13 @@
 
 				<h1>Календарь мероприятий</h1>
 				
+				<script src="js/jquery.e-calendar.js"></script>
+				<script>
+					$(function () {
+						// инициализация плагина для календаря
+						$('#calendar').eCalendar();
+					});
+				</script>
 				<div id="calendar"></div>
 				
 

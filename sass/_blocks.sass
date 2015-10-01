@@ -1571,6 +1571,8 @@ select
 .calendar
 	$calendar_days_w: 50%
 	$calendar_days_h: 60px
+	$calendar_days_h_sm: 35px
+
 	margin-bottom: $content_bot_space
 	@extend %clear
 	display: table
@@ -1582,7 +1584,6 @@ select
 		position: absolute
 		top: 0
 		//background: red
-		z-index: 2
 		cursor: pointer
 		border: none !important
 		background: $page_color
@@ -1600,7 +1601,7 @@ select
 			background: $bg_color_light
 
 		&_prev
-			left: -1px
+			left: 0
 			&:before
 				margin-top: - image-height( sprite-path("small-arrow-left") )/2
 				margin-left: - image-width( sprite-path("small-arrow-left") )/2
@@ -1628,16 +1629,31 @@ select
 		text-align: center
 		+rem(font-size, 20px)
 		text-transform: uppercase
+		+transition-property(background)
+		+transition-duration(.5s)
+		cursor: pointer
+
+		&:hover
+			background: $bg_color_light
+
 
 	&__days
 		display: table-cell
 		position: relative
 		width: $calendar_days_w
 		//background: #F5D797
-		border-left: 1px solid $bg_color_darkest
-		border-bottom: 1px solid $bg_color_darkest
 		@extend %bszbb
 		vertical-align: top
+		margin-bottom: $content_bot_space
+
+		+max-screen($mq_calendar2)
+			display: block
+			width: auto
+
+	&__days-wrapper
+		border-left: 1px solid $bg_color_darkest
+		border-bottom: 1px solid $bg_color_darkest
+		@extend %clear
 
 	&__week-day
 		background: $bg_color_darkest
@@ -1666,6 +1682,10 @@ select
 		border-left: none
 		position: relative
 
+		+max-screen($mq_calendar)
+			height: $calendar_days_h_sm
+			line-height: $calendar_days_h_sm
+
 		&_previous-month,
 		&_next-month
 			background: $bg_color_dark
@@ -1693,9 +1713,12 @@ select
 				+transition-property(opacity)
 				+transition-duration(.5s)
 			
-		&_event:hover
+		&_event:hover,
+		&_over
 			&:before
 				+opacity(1)
+
+		
 
 	&__events
 		display: table-cell
@@ -1703,7 +1726,12 @@ select
 		//background: #F5C3EC
 		vertical-align: middle
 		padding-left: 40px
+		padding-top: $calendar_days_h
 
+		+max-screen($mq_calendar2)
+			display: block
+			width: auto
+			padding-top: 0
 
 /* calendar
 /* ---------------------------------------END--- */
@@ -1723,9 +1751,36 @@ select
 		padding-left: 92px
 		position: relative
 		min-height: 70px
+		visibility: hidden
+		// +opacity(0)
+		// +transition-property(opacity)
+		// +transition-duration(.5s)
+		display: none
 
 		&_over
-			background: yellow
+			visibility: visible
+			// +opacity(1)
+			display: block
+
+		+max-screen($mq_menu)
+			padding-top: 72px
+			padding-right: 15px
+			padding-left: 15px
+			text-align: center
+		+max-screen($mq_inf)
+			width: 100%
+
+		+max-screen($mq_calendar)
+			padding-left: 30px
+			padding-top: 0
+			text-align: left
+
+		+max-screen($mq_calendar2)
+			margin-bottom: 10px
+
+			&:last-child
+				border-bottom: none
+
 
 	&__date
 		display: block
@@ -1742,6 +1797,11 @@ select
 		+transition-property(background, text-shadow)
 		+transition-duration($link_animation-time)
 
+		+max-screen($mq_calendar)
+			width: 50px
+			height: 50px
+			left: 5px
+
 		+max-screen($mq_menu)
 			left: 50%
 			margin-left: -34px
@@ -1750,6 +1810,8 @@ select
 		+rem(font-size, 36px)
 		line-height: 1
 		@extend %font-extra-bold
+		+max-screen($mq_calendar)
+			+rem(font-size, 20px)
 
 	&__weekday
 		+rem(font-size, 12px)

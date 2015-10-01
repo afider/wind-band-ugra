@@ -29,6 +29,19 @@
         var mouseLeave = function () {
             $(this).removeClass('c-nav-btn-over');
         };
+        var mouseClickEvent = function () {
+            $('.calendar__day').removeClass('calendar__day_over');
+            $('.calendar-events__i').removeClass('calendar-events__i_over');
+            $(this).addClass('calendar__day_over');
+            var d = $(this).attr('data-event-day');
+            $('div.calendar-events__i[data-event-day="' + d + '"]').addClass('calendar-events__i_over');
+        };
+        var calendarClickEvent = function () {
+            $('.calendar__day_event').addClass('calendar__day_over');
+            $('.calendar-events__i').addClass('calendar-events__i_over');
+            console.log('msg');
+        };
+
         var mouseOverEvent = function () {
             $(this).addClass('calendar__day_over');
             var d = $(this).attr('data-event-day');
@@ -81,13 +94,16 @@
 
         function print() {
             loadEvents();
-            var dWeekDayOfMonthStart = new Date(dYear, dMonth, 1).getDay();
+           // var dWeekDayOfMonthStart = new Date(dYear, dMonth, 1).getDay();
+            var dWeekDayOfMonthStart = new Date(dYear, dMonth, 0).getDay();
             var dLastDayOfMonth = new Date(dYear, dMonth + 1, 0).getDate();
-            var dLastDayOfPreviousMonth = new Date(dYear, dMonth + 1, 0).getDate() - dWeekDayOfMonthStart + 1;
+           // var dLastDayOfPreviousMonth = new Date(dYear, dMonth + 1, 0).getDate() - dWeekDayOfMonthStart + 1;
+            var dLastDayOfPreviousMonth = new Date(dYear, dMonth + 0, 0).getDate() - dWeekDayOfMonthStart + 1;
 
             var cBody = $('<div/>').addClass('calendar__days');
             var cEvents = $('<div/>').addClass('calendar__events events');
             var cEventsBody = $('<div/>').addClass('calendar-events__body');
+            var cDaysWrapper = $('<div/>').addClass('calendar__days-wrapper');
             //cEvents.append($('<div/>').addClass('calendar-events__title').html(settings.eventTitle));
             cEvents.append(cEventsBody);
             var cNext = $('<div/>').addClass('calendar__ctrl calendar__ctrl_next');
@@ -97,9 +113,11 @@
             cMonth.html(settings.months[dMonth] + ' ' + dYear);
             cNext.html(settings.textArrows.next);
 
-            cPrevious.on('mouseover', mouseOver).on('mouseleave', mouseLeave).on('click', previousMonth);
-            cNext.on('mouseover', mouseOver).on('mouseleave', mouseLeave).on('click', nextMonth);
+            cMonth.on('click', calendarClickEvent);
 
+            cPrevious.on('click', previousMonth);
+            cNext.on('click', nextMonth);
+            
             cBody.append(cPrevious);
             cBody.append(cMonth);
             cBody.append(cNext);
@@ -108,10 +126,11 @@
                 cWeekDay.html(settings.weekDays[i]);
                 cBody.append(cWeekDay);
             }
+            cBody.append(cDaysWrapper);
             var day = 1;
             var dayOfNextMonth = 1;
             for (var i = 0; i < 42; i++) {
-                var cDay = $('<a/>');
+                var cDay = $('<div/>');
                 if (i < dWeekDayOfMonthStart) {
                     cDay.addClass('calendar__day calendar__day_previous-month');
                     cDay.html(dLastDayOfPreviousMonth++);
@@ -124,7 +143,7 @@
                         var d = settings.events[j].datetime;
                         if (d.getDate() == day && (d.getMonth() - 1) == dMonth && d.getFullYear() == dYear) {
                             cDay.addClass('calendar__day_event').attr('data-event-day', d.getDate());
-                            cDay.on('mouseover', mouseOverEvent).on('mouseleave', mouseLeaveEvent);
+                            cDay.on('click', mouseClickEvent);
                         }
                     }
                     cDay.html(day++);
@@ -132,7 +151,7 @@
                     cDay.addClass('calendar__day calendar__day_next-month');
                     cDay.html(dayOfNextMonth++);
                 }
-                cBody.append(cDay);
+                cDaysWrapper.append(cDay);
             }
             var eventList = $('<div/>').addClass('calendar-events__list');
             for (var i = 0; i < settings.events.length; i++) {
@@ -158,7 +177,7 @@
                     console.log(eventDateBlock);
 
                     item.attr('data-event-day', d.getDate());
-                    item.on('mouseover', mouseOverItem).on('mouseleave', mouseLeaveItem);
+                    //item.on('mouseover', mouseOverItem).on('mouseleave', mouseLeaveItem);
                     //item.append(title).append(description);
                     property1.append(eventTime);
                     property2.append(minimumAge);
@@ -187,7 +206,7 @@
 
     // plugin defaults
     $.fn.eCalendar.defaults = {
-        weekDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        weekDays: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб','Вс'],
         months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         textArrows: {previous: '', next: ''},
         eventTitle: 'События',
