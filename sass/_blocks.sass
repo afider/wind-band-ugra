@@ -2072,3 +2072,118 @@ select
 
 /* sm-sect-h
 /* ---------------------------------------END--- */
+
+
+/* img-teasers
+/* --------------------------------------------- */
+
+.img-teasers
+	$img-teasers_space: 44px
+	$img-teasers_dim: 250px
+	$img-teasers_dim_sm: 210px
+	$img-teasers_dim_smr: 180px
+	$img-teasers_dim_smst: 120px
+	$img-teasers_dim_per: 32.5%
+	$img-teasers_dim_per_half: 49%
+
+	margin-left: - $img-teasers_space
+
+	&__lst
+		width: 100%
+		margin: 0
+		//margin-left: - $img-teasers_space
+		padding: 0
+		list-style-type: none
+		+max-screen($mq_detail)
+			margin: 0
+		
+	&__i
+		margin: 0
+		//margin: 0 0 $img-teasers_space $img-teasers_space
+		padding: 0 0 $img-teasers_space $img-teasers_space
+		display: inline-block
+		vertical-align: top
+		//background: #EADBDB
+		width: $img-teasers_dim_per
+		@extend %bszbb
+		+max-screen($mq_img-teasers4)
+			width: $img-teasers_dim_per_half
+		+max-screen($mq_detail)
+			width: 100% !important
+			margin-left: 0
+		
+
+	&__body
+		height: $img-teasers_dim
+		overflow: hidden
+		margin-bottom: 17px
+		+max-screen($mq_img-teasers)
+			height: $img-teasers_dim_sm
+		+max-screen($mq_img-teasers2)
+			height: $img-teasers_dim_smr
+		+max-screen($mq_img-teasers3)
+			height: $img-teasers_dim_smst
+		+max-screen($mq_img-teasers4)
+			height: $img-teasers_dim_sm !important
+
+
+	&__a
+		display: table-cell
+		vertical-align: middle
+		text-align: center
+		height: $img-teasers_dim
+		border-bottom: none
+		background: #000
+		+max-screen($mq_img-teasers)
+			height: $img-teasers_dim_sm
+		+max-screen($mq_img-teasers2)
+			height: $img-teasers_dim_smr
+		+max-screen($mq_img-teasers3)
+			height: $img-teasers_dim_smst
+		+max-screen($mq_img-teasers4)
+			height: $img-teasers_dim_sm !important
+
+	&__img
+		display: block
+
+	&__h
+		text-transform: uppercase
+		+rem(font-size, 15px)
+
+
+/* img-teasers
+/* ---------------------------------------END--- */
+
+
+/* play
+/* --------------------------------------------- */
+
+.play
+	position: relative
+
+	&:before
+		content: ''
+		display: block
+		position: absolute
+		top: 50%
+		left: 50%
+		margin-top: - image-height( sprite-path("play") )/2
+		margin-left: - image-width( sprite-path("play") )/2
+		+sprite-icon("play")
+		+opacity(.80)
+		+transition-property(opacity)
+		+transition-duration($link_animation-time)
+
+		+max-screen($mq_detail)
+			top: 10px
+			margin-top: 0
+			margin-left: 0
+			left: auto
+			right: 10px
+
+	&:hover
+		&:before
+			+opacity(1)
+
+/* play
+/* ---------------------------------------END--- */

@@ -64,6 +64,16 @@
                 mainClass: 'my-mfp-slide-bottom'
             });
 
+        $('.js-popup-video').magnificPopup({
+                disableOn: 700,
+                type: 'iframe',
+                mainClass: 'mfp-fade',
+                removalDelay: 160,
+                preloader: false,
+
+                fixedContentPos: false
+            });
+
         // Подключение плагина для увеличения и просмотра изображений
         var zoomClass = 'js-img-zoom';
         $('.'+ zoomClass).magnificPopup({
@@ -135,6 +145,18 @@
 
         // инициализация плагина для адаптивных таблиц
         $('.table_responsive').cardtable();
+
+        $('.js-popup-video').each(function() {
+            
+            var self = $(this);
+            var videoSrc = self.attr('href');
+            var videoId = videoSrc.substr(videoSrc.length - 11);
+            var videoImg = $('<img src="//img.youtube.com/vi/'+ videoId +'/0.jpg" class="img-teasers__img">');
+
+            console.log(videoSrc, videoId);
+
+            self.append(videoImg);
+        });
 
 
 
