@@ -2008,16 +2008,28 @@ select
 
 .person-detail
 	@extend %clear
+	padding-bottom: $content_bot_space
 
 	&__col
 		float: left
 		&_photo
 			width: 30%
+			+max-screen($mq_detail)
+				width: auto
+				margin-bottom: $content_bot_space
 
 		&_description
 			width: 70%
 			padding-left: 40px
 			@extend %bszbb
+			+max-screen($mq_detail)
+				width: auto
+				padding-left: 0
+
+		+max-screen($mq_detail)
+			float: none
+
+		
 
 /* person-detail
 /* ---------------------------------------END--- */

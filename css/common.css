@@ -2345,17 +2345,18 @@ select option {
 /* ---------------------------------------END--- */
 /* person-detail */
 /* --------------------------------------------- */
+.person-detail {
+  padding-bottom: 20px;
+}
 .person-detail__col {
   float: left;
 }
 .person-detail__col_photo {
   width: 30%;
-}
-.person-detail__col_description {
+}.person-detail__col_description {
   width: 70%;
   padding-left: 40px;
 }
-
 /* person-detail */
 /* ---------------------------------------END--- */
 /* go-back */
@@ -3131,6 +3132,20 @@ img.mfp-img {
 
   select {
     width: 100% !important;
+  }
+
+  .person-detail__col_photo {
+    width: auto;
+    margin-bottom: 20px;
+  }
+
+  .person-detail__col_description {
+    width: auto;
+    padding-left: 0;
+  }
+
+  .person-detail__col {
+    float: none;
   }
 }
 
