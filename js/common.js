@@ -65,7 +65,7 @@
             });
 
         $('.js-popup-video').magnificPopup({
-                disableOn: 700,
+                disableOn: 350,
                 type: 'iframe',
                 mainClass: 'mfp-fade',
                 removalDelay: 160,
