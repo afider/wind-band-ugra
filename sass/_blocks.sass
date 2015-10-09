@@ -722,12 +722,14 @@
 
 	&__i
 		display: table-cell
-		vertical-align: top
+		vertical-align: middle
 		+max-screen($mq_menu)
 			display: block
 			text-align: center
 
 		&_phone
+			vertical-align: top
+			padding-top: 14px
 			font-size: 16px
 			color: #333
 			font-weight: bold
@@ -737,10 +739,11 @@
 				margin-bottom: 15px
 
 		&_partner-1
-			width: 39%
+			width: 42%
 			+max-screen($mq_menu)
 				width: 100%
 				margin-bottom: 15px
+
 
 	&__a
 		border-bottom: none
@@ -756,7 +759,9 @@
 	text-align: center
 	margin-bottom: 45px
 	text-transform: uppercase
-	+rem(font-size, 30px)
+	+rem(font-size, 24px)
+	font-family: 'Times New Roman', $font_main
+
 
 	&__txt
 		display: inline-block
@@ -773,7 +778,7 @@
 			width: 8px
 			height: 8px
 			border-radius: 50%
-			background: $h_color
+			background: $bullet_color
 
 		&:after
 			content: ''
@@ -785,7 +790,7 @@
 			width: 8px
 			height: 8px
 			border-radius: 50%
-			background: $h_color
+			background: $bullet_color
 
 /* bullet-h
 /* ---------------------------------------END--- */
@@ -847,13 +852,13 @@
 				border-bottom: none
 
 	&__date
+		line-height: 1
 		display: block
 		width: 68px
 		height: 68px
 		background: $main_color_light
 		color: #fff
 		text-align: center
-		padding-top: 8px
 		@extend %bszbb
 		position: absolute
 		top: 0
@@ -865,14 +870,21 @@
 			left: 50%
 			margin-left: -34px
 
+	&__weekday
+		background: $main_color2
+		height: 15px
+		line-height: 13px
+		+transition-property(background)
+		+transition-duration($link_animation-time)
 
 	&__number
 		+rem(font-size, 36px)
-		line-height: 1
+		
 		@extend %font-extra-bold
 
-	&__weekday
+	&__month
 		+rem(font-size, 12px)
+
 
 	&__h
 		margin-bottom: 5px
@@ -884,6 +896,10 @@
 		background: #d11748
 		text-shadow: 0 0 10px rgba(0, 0, 0, .5)
 
+	&__h:hover + &__date &__weekday
+		background: $main_color_light
+		text-shadow: 0 0 10px rgba(0, 0, 0, .5)
+
 
 	&__property
 		+rem(font-size, 12px)
@@ -891,6 +907,7 @@
 	&__imp
 		color: $main_color_light
 		font-weight: bold
+
 
 /* events
 /* ---------------------------------------END--- */
@@ -1536,7 +1553,7 @@ select
 		left: -10px
 		right: -10px
 		bottom: 100%
-		margin-bottom: 3px
+		margin-bottom: 17px
 		height: 32px
 		line-height: 32px
 		font-weight: normal
@@ -1548,6 +1565,7 @@ select
 			position: relative
 			left: 0
 			right: 0
+			margin-bottom: 10px
 
 /* test
 /* ---------------------------------------END--- */
@@ -1771,13 +1789,13 @@ select
 
 
 	&__date
+		line-height: 1
 		display: block
 		width: 68px
 		height: 68px
 		background: $main_color_light
 		color: #fff
 		text-align: center
-		padding-top: 8px
 		@extend %bszbb
 		position: absolute
 		top: 0
@@ -1794,6 +1812,13 @@ select
 			left: 50%
 			margin-left: -34px
 
+	&__weekday
+		background: $main_color2
+		height: 15px
+		line-height: 13px
+		+transition-property(background)
+		+transition-duration($link_animation-time)
+
 	&__number
 		+rem(font-size, 36px)
 		line-height: 1
@@ -1801,7 +1826,7 @@ select
 		+max-screen($mq_calendar)
 			+rem(font-size, 20px)
 
-	&__weekday
+	&__month
 		+rem(font-size, 12px)
 
 	&__h

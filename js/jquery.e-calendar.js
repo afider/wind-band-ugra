@@ -172,7 +172,16 @@
 
                     var eventDate = d.getDate();
                     var eventMonth = settings.months[dMonth];
-                    var eventDateBlock = '<div class="calendar-events__date"><div class="calendar-events__number">' + eventDate + '</div><div class="calendar-events__weekday">' + eventMonth + '</div></div>';
+                    var dWeekDay = new Date(dMonth + ' ' + eventDate + ', 1995');
+                    var dWeekDayNum = dWeekDay.getDay() - 1;
+
+                    if (dWeekDayNum === -1) {dWeekDayNum = 6;}
+                    else if  (dWeekDayNum === 0) {dWeekDayNum = 7;}
+                    
+                    var dWeekDayTxt = settings.weekDays[dWeekDayNum - 1];
+                   
+
+                    var eventDateBlock = '<div class="calendar-events__date"><div class="calendar-events__weekday">' + dWeekDayTxt + '</div><div class="calendar-events__number">' + eventDate + '</div><div class="calendar-events__month">' + eventMonth + '</div></div>';
 
                     console.log(eventDateBlock);
 
@@ -206,7 +215,7 @@
 
     // plugin defaults
     $.fn.eCalendar.defaults = {
-        weekDays: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб','Вс'],
+        weekDays: ['пн', 'вт', 'ср', 'чт', 'пт', 'сб','вс'],
         months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         textArrows: {previous: '', next: ''},
         eventTitle: 'События',
@@ -233,6 +242,13 @@
                 eventTime: '19:55', 
                 minimumAge: '+16', 
                 datetime: new Date(2015, 10, 17)
+            },
+            {
+                title: 'Концерт в Тюменской филармонии «Духового оркестра Югры»', 
+                link: '#5', 
+                eventTime: '19:55', 
+                minimumAge: '+16', 
+                datetime: new Date(2015, 10, 18)
             },
             {
                 title: 'Открытие концертного сезона 2015-2016 в концертном зале', 
