@@ -172,8 +172,9 @@
 
                     var eventDate = d.getDate();
                     var eventMonth = settings.months[dMonth];
-                    var dWeekDay = new Date(dMonth + ' ' + eventDate + ', 1995');
-                    var dWeekDayNum = dWeekDay.getDay() - 1;
+                    var dWeekDay = new Date(dMonth + ' ' + eventDate + ', 2015');
+                    var realDate = new Date(d.getFullYear(), d.getMonth() - 1, d.getDate());
+                    var dWeekDayNum = realDate.getDay();
 
                     if (dWeekDayNum === -1) {dWeekDayNum = 6;}
                     else if  (dWeekDayNum === 0) {dWeekDayNum = 7;}
